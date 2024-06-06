@@ -66,8 +66,55 @@ function calcStrength(){
     }
 }
 
-function copyContent(){
-    
+async function copyContent(){
+    try{
+       await navigator.clipboard.writeText(passwordDisplay.value);
+       copyMsg.innerText="copied";
+    }
+    catch(e){
+      copyMsg.innerText="fail"
+    }
+
+    copyMsg.classList.add("active");
+    setTimeout(() => {
+        copyMsg.classList.remove("active");
+    }, 2000);
 }
+
+function handlecheckboxchange(){
+    checkcount=0;
+    allCheckBox.forEach((checkbox)=>{
+        if(checkbox.checked){
+            checkcount++;
+        }
+    })
+
+    if(passwordlength<checkcount){
+        passwordlength=checkcount;
+        handleSlider();
+    }
+}
+
+ allCheckBox.forEach((checkbox)=>{
+    checkbox.addEventListener('change',handlecheckboxchange);
+ })
+
+
+inputSlider.addEventListener('input',(e)=>{
+    passwordlength=e.target.value;
+    handleSlider();
+})
+
+copyBtn.addEventListener('click',()=>{
+    if(passwordDisplay.value){
+        copyContent();
+    }
+})
+
+generateBtn.addEventListener('click',(e)=>{
+
+})
+ 
+
 
 
