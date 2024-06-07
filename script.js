@@ -14,16 +14,22 @@ const symbols = '!@#$%^&*()_+<>?":}{|;\',./.,~`';
 let password = "";
 let passwordlength = 10;
 let checkcount = 0;
+setIndicator("#ccc");
 
 handleSlider();
 
 function handleSlider() {
     inputSlider.value = passwordlength;
     lengthDisplay.innerText = passwordlength;
+
+    const min=inputSlider.min;
+    const max=inputSlider.max;
+    inputSlider.style.backgroundSize=((passwordlength-min)*100/(max-min))+"%100%"
 }
 
 function setIndicator(color) {
     indicator.style.backgroundColor = color;
+    indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
 
 function getRndInteger(min, max) {

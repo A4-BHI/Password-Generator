@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password-Generator</title>
-    <!-- Remove the tailwindcss CDN if not needed -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -13,8 +20,8 @@
         <h1>Password Generator</h1>
         <div class="display-container">
             <input readonly placeholder="Password" class="display" data-passworddisplay>
-            <button data-copy>
-                <span data-copymsg></span>
+            <button class="copyBtn" data-copy>
+                <span class="copyMsg" data-copymsg></span>
                 <img src="./copy.svg" alt="copy" width="23" height="23">
             </button>
         </div>
@@ -25,34 +32,35 @@
             </div>
     
             <input type="range" min="1" max="20" class="slider" step="1" data-lengthslider>
-        </div>
+        
     
-        <div>
+        <div class="check">
             <input type="checkbox" id="uppercase">
             <label for="uppercase">Includes Uppercase letters</label>
         </div>
     
-        <div>
+        <div class="check">
             <input type="checkbox" id="lowercase">
             <label for="lowercase">Includes lowercase letters</label>
         </div>
     
-        <div>
+        <div class="check">
             <input type="checkbox" id="numbers">
             <label for="numbers">Includes Numbers</label>
         </div>
     
-        <div>
+        <div class="check">
             <input type="checkbox" id="symbols">
             <label for="symbols">Includes Symbols</label>
         </div>
     
         <div class="strength-container">
             <p>Strength</p> 
-            <div data-indicator></div>
+            <div data-indicator class="indicator"></div>
         </div>
     
         <button class="generateBtn">Generate Password</button>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
